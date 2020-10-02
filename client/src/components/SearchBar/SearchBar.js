@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 // [ REDUX ]
 import { connect } from 'react-redux';
@@ -21,10 +21,10 @@ const SearchBar = ( props ) => {
         <div className={`searchbar`}>
             Search Bar &nbsp;
             <div className={`searchbar__input`}>
-                 > Input field &nbsp;
+                 Input field &nbsp;
             </div>
             <div className={`searchbar__submit`}>
-                 > Submit button
+                 Submit button
             </div>
         </div>
     )
