@@ -8,6 +8,7 @@ import { createStructuredSelector } from 'reselect';
 import '../../styles/sass/main.scss';
 
 // [ COMPONENTS ]
+import SearchBar from '../SearchBar/SearchBar';
 
 
 // [ VIEWS ]
@@ -19,6 +20,10 @@ const Nav = ( props ) => {
     
     return (
         <div className={`nav`} id={`nav`}>
+            <div className={`nav__logo`}>
+                Logo
+            </div>
+            <SearchBar />
             <ul className={`nav__list`}>
                 <li className={`nav__item`}>
                     <a href="/" className={`nav__link`}>Home</a>
