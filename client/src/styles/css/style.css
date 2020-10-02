@@ -119,13 +119,23 @@ a {
   text-align: center;
   font-size: 1.6rem; }
 
+.searchbar {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around; }
+
 .nav {
   border: 3px solid limegreen;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 5rem; }
+  height: 5rem;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between; }
+  .nav__logo {
+    padding: 1rem; }
   .nav__list {
     list-style: none;
     display: inline-block; }

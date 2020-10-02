@@ -7,6 +7,14 @@
     width: 100vw;
     height: 5rem;
 
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+
+    &__logo {
+        padding: 1rem;
+    }
+
     &__list {
         list-style: none;
         display: inline-block;
