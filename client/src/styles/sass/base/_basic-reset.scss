@@ -44,8 +44,8 @@ body, input, select, textarea {
 
 a {
     color: inherit;
-    text-decoration: underline;
+    text-decoration: none;
     &:hover {
-        text-decoration: none;
+        text-decoration: bold;
     }
 }

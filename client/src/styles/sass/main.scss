@@ -1,8 +1,9 @@
-@import 'base/basic-reset';
-
 @import 'abstracts/mixins';
 @import 'abstracts/utilities';
 @import 'abstracts/variables';
+
+@import 'base/basic-reset';
+@import 'base/animations';
 
 @import 'layout/grid';
 @import 'layout/app';

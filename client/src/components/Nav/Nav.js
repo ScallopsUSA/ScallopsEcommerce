@@ -19,7 +19,20 @@ const Nav = ( props ) => {
     
     return (
         <div className={`nav`} id={`nav`}>
-            Nav
+            <ul className={`nav__list`}>
+                <li className={`nav__item`}>
+                    <a href="#" className={`nav__link`}>Item 1</a>
+                </li>
+                <li className={`nav__item`}>
+                    <a href="#" className={`nav__link`}>Item 2</a>
+                </li>
+                <li className={`nav__item`}>
+                    <a href="#" className={`nav__link`}>Item 3</a>
+                </li>
+                <li className={`nav__item`}>
+                    <a href="#" className={`nav__link`}>Item 4</a>
+                </li>
+            </ul>
         </div>
     )
 };
