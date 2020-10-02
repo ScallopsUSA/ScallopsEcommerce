@@ -21,16 +21,16 @@ const Nav = ( props ) => {
         <div className={`nav`} id={`nav`}>
             <ul className={`nav__list`}>
                 <li className={`nav__item`}>
-                    <a href="#" className={`nav__link`}>Item 1</a>
+                    <a href="/" className={`nav__link`}>Home</a>
                 </li>
                 <li className={`nav__item`}>
-                    <a href="#" className={`nav__link`}>Item 2</a>
+                    <a href="/product" className={`nav__link`}>Product</a>
                 </li>
                 <li className={`nav__item`}>
-                    <a href="#" className={`nav__link`}>Item 3</a>
+                    <a href="/category" className={`nav__link`}>Category</a>
                 </li>
                 <li className={`nav__item`}>
-                    <a href="#" className={`nav__link`}>Item 4</a>
+                    <a href="/contact" className={`nav__link`}>Contact</a>
                 </li>
             </ul>
         </div>

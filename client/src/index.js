@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
 // [ STYLNG ]
@@ -16,9 +17,11 @@ import { PersistGate } from 'redux-persist/integration/react';
 // [ MAIN ]
 ReactDOM.render(
     <Provider store={store}>
-        <PersistGate persistor={persistor} >
-            <App />
-        </PersistGate>
+        <BrowserRouter>
+            <PersistGate persistor={persistor} >
+                <App />
+            </PersistGate>
+        </BrowserRouter>
     </Provider>
    , document.getElementById('root')
  );
