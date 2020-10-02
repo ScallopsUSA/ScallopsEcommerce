@@ -1,0 +1,176 @@
+{
+	// Place your snippets for javascript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+   // }
+   
+   "Console Log": {
+      "prefix": "cl",
+      "description": "Log output to console",
+      "body": "console.log( $1 );",
+   },
+
+   "Console Table": {
+      "prefix": "cta",
+      "description": "Output table to console",
+      "body": "console.table( $1 );",
+   },
+
+   "Console Time": {
+      "prefix": "cti",
+      "description": "Console Time",
+      "body": [
+         "console.time( '$1' );",
+         "console.timeEnd( '$1' );"
+      ]
+   },
+
+   "For-loop with i iteration for Arrays": {
+      "prefix": "forarr",
+      "description": "i=0 for-loop",
+      "body": [
+         "for( let ${i}=0; ${i}<${arr}.length; ${i}++ ) {",
+         "\t$0",
+         "};"
+      ]
+   },
+
+   "For-of iteration for Arrays/Strings": {
+      "prefix": "forof",
+      "description": "Array/String 'for-of' loop syntax",
+      "body": [
+         "for( const ${element} of ${object} ) {",
+         "",
+         "\t$0",
+         "",
+         "};"
+      ]
+   },
+
+   "For-in iteration": {
+      "prefix": "forin",
+      "description": "'for-in' loop syntax",
+      "body": [
+         "for( const ${key} in ${object} ) {",
+         "\tlet ${temp} = ${object}[${key}];",
+         "",
+         "};"
+      ]
+   },
+
+   "new array": {
+      "prefix": "na",
+      "description": "New empty array",
+      "body": "let ${newArr} = [ $0 ];",
+   },
+
+   "React Functional Component": {
+      "prefix": "rf",
+      "description": "React functional component",
+      "body": [ 
+         "import React, { useState, useEffect } from 'react';",
+         "",
+         "// [ REDUX ]",
+         "",
+         "// [ STYLING ]",
+         "import '../../styles/sass/main.scss';",
+         "",
+         "// [ COMPONENTS ]",
+         "",
+         "// [ VIEWS ]",
+         "",
+         "",
+         "// [ MAIN ]",
+         "const $TM_FILENAME_BASE = () => {",
+         "\t",
+         "\treturn (",
+         "\t\t<div className={``}>",
+         "\t\t\t${TM_FILENAME_BASE}",
+         "\t\t</div>",
+         "\t)",
+         "};",
+         "",
+         "export default $TM_FILENAME_BASE;",
+       ],
+   },
+
+   "React-Redux Functional Component": {
+      "prefix": "rfa",
+      "description": "React-Redux Functional Component",
+      "body": [
+         "import React, { useState, useEffect } from 'react';",
+         "",
+         "// [ REDUX ]",
+         "import { connect } from 'react-redux';",
+         "import { createStructuredSelector } from 'reselect';",
+         "",
+         "// [ STYLING ]",
+         "import '../../styles/sass/main.scss';",
+         "",
+         "// [ COMPONENTS ]",
+         "",
+         "",
+         "// [ VIEWS ]",
+         "",
+         "",
+         "",
+         "// [ MAIN ]",
+         "const $TM_FILENAME_BASE = ( ${props} ) => {",
+         "\t",
+         "\treturn (",
+         "\t\t<div className={``}>",
+         "\t\t\t${TM_FILENAME_BASE}",
+         "\t\t</div>",
+         "\t)",
+         "};",
+         "",
+         "",
+         "",
+         "// [ REDUX CONNECT ]",
+         "const mapStateToProps = createStructuredSelector({",
+         "\t",
+         "\t",
+         "});",
+         "",
+         "const mapDispatchToProps = dispatch => ({",
+         "\t$0",
+         "\t",
+         "});",
+         "",
+         "",
+         "export default connect( mapStateToProps, mapDispatchToProps )( $TM_FILENAME_BASE );",
+      ],
+   },
+
+   "React-Saga: { reselect } mapStateToProps with createStructuredSelector": {
+      "prefix": "maps",
+      "description": "{ connect } mapStateToProps with component",
+      "body": [
+         "const mapStateToProps = createStructuredSelector({",
+         "\t${propName}: ${selector},",
+         "\t$0",
+         "});",
+      ],
+   },
+ 
+   "React-Saga: mapDispatchToProps": {
+      "prefix": "mapd",
+      "description": "{ connect } mapDispatchToProps with component",
+      "body": [
+         "const mapDispatchToProps = dispatch => ({",
+         "\t${propName}: ($1) => dispatch( ${importedFunction}( $3 ) )",
+         "\t$0",
+         "});",
+      ],
+   },
+
+}
