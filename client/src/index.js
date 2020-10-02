@@ -16,11 +16,9 @@ import { PersistGate } from 'redux-persist/integration/react';
 // [ MAIN ]
 ReactDOM.render(
     <Provider store={store}>
-       <BrowserRouter>
-          <PersistGate persistor={persistor} >
-             <App />
-          </PersistGate>
-       </BrowserRouter>
+        <PersistGate persistor={persistor} >
+            <App />
+        </PersistGate>
     </Provider>
    , document.getElementById('root')
  );
