@@ -1,0 +1,39 @@
+@mixin clearfix {
+    &::after {
+       content: ""; 
+       display: table;
+       clear: both;
+    }
+ }
+ 
+ @mixin translate-center {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate( -50%, -50% );
+ }
+ 
+ // [ MEDIA QUERIES ]
+ // $breakpoint-sm: 37.5em; // 600px
+ // $breakpoint-md: 56.25em; // 900px
+ // $breakpoint-lg: 75em; // 1200px
+ // $breakpoint-xl: 112.5em; // 1800px
+ 
+ // Order: Base + Typography > general layout + grid > page layout > components
+ @mixin respond( $breakpoint ) {
+     @if $breakpoint == sm {
+         @media only screen and ( max-width: 37.5em ) { @content; }
+     }
+     @if $breakpoint == md {
+         @media only screen and ( max-width: 56.25em ) { @content; }
+     }
+     @if $breakpoint == desk {
+         @media only screen and ( max-width: 75em ) { @content; }
+     }
+     @if $breakpoint == desk-xl {
+         @media only screen and ( min-width: 112.5em ) { @content; }
+     }
+     @else {
+        @media only screen and ( max-width: $breakpoint ) { @content; }
+     }
+ }

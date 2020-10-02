@@ -1,0 +1,53 @@
+
+
+@-ms-viewport {
+    width: device-width;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 62.5%;
+    line-height: 1;
+
+    background: #303238 url('../images/bg01.png');
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+mark {
+    background-color: transparent;
+    color: inherit;
+}
+
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+input, select, textarea {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+}
+
+body, input, select, textarea {
+    font-family: 'Open Sans', sans-serif;
+    color: #7b818c;
+    font-weight: 400;
+    font-size: 11pt;
+    line-height: 1.85em;
+}
+
+a {
+    color: inherit;
+    text-decoration: underline;
+    &:hover {
+        text-decoration: none;
+    }
+}
