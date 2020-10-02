@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 // [ REDUX ]
 import { connect } from 'react-redux';
@@ -11,7 +12,10 @@ import '../../styles/sass/main.scss';
 
 
 // [ VIEWS ]
-
+import LandingPage from '../LandingPage/LandingPage';
+import ProductPage from '../ProductPage/ProductPage';
+import CategoryPage from '../CategoryPage/CategoryPage';
+import ContactPage from '../ContactPage/ContactPage';
 
 
 // [ MAIN ]
@@ -19,7 +23,12 @@ const MainViewContainer = ( props ) => {
     
     return (
         <div className={`mainview`}>
-            MainViewContainer
+            <Switch>
+                <Route exact path='/' component={LandingPage} />
+                <Route exact path='/product' component={ProductPage} />
+                <Route exact path='/category' component={CategoryPage} />
+                <Route exact path='/contact' component={ContactPage} />
+            </Switch>
         </div>
     )
 };
