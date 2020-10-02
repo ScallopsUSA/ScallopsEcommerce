@@ -1,3 +1,40 @@
+.u-text--lowercase {
+  text-transform: lowercase !important; }
+
+.u-text--no-transform {
+  text-transform: none !important; }
+
+.u-text--center {
+  text-align: center !important; }
+
+.u-margin-top-sm {
+  margin-top: 1rem !important; }
+
+.u-margin-top-md {
+  margin-top: 4rem !important; }
+
+.u-margin-top-lg {
+  margin-top: 8rem !important; }
+
+.u-margin-bottom-sm {
+  margin-bottom: 1rem !important; }
+
+.u-margin-bottom-md {
+  margin-bottom: 4rem !important; }
+  .u-margin-bottom-md:last-child {
+    margin-bottom: 1rem !important; }
+  @media only screen and (max-width: tab-port) {
+    .u-margin-bottom-md {
+      margin-bottom: 3rem !important; } }
+
+.u-margin-bottom-lg {
+  margin-bottom: 8rem !important; }
+  .u-margin-bottom-lg:last-child {
+    margin-bottom: 1rem !important; }
+  @media only screen and (max-width: tab-port) {
+    .u-margin-bottom-lg {
+      margin-bottom: 5rem !important; } }
+
 @-ms-viewport {
   width: device-width; }
 
@@ -34,18 +71,9 @@ body, input, select, textarea {
 
 a {
   color: inherit;
-  text-decoration: underline; }
+  text-decoration: none; }
   a:hover {
-    text-decoration: none; }
-
-.u-text--lowercase {
-  text-transform: lowercase !important; }
-
-.u-text--no-transform {
-  text-transform: none !important; }
-
-.u-text--center {
-  text-align: center !important; }
+    text-decoration: bold; }
 
 .row-afsd {
   max-width: 120rem;
@@ -86,3 +114,46 @@ a {
     width: calc( 2 * ((100% - 3*6rem) / 4) + 6rem); }
   .row-afsd .col-3-of-4 {
     width: calc( 3 * ((100% - 3*6rem) / 4) + (2*6rem)); }
+
+.app-wrapper {
+  text-align: center;
+  font-size: 1.6rem; }
+
+.nav {
+  border: 3px solid limegreen;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 5rem; }
+  .nav__list {
+    list-style: none;
+    display: inline-block; }
+  .nav__item {
+    float: left; }
+  .nav__link {
+    margin-right: 2rem; }
+    .nav__link:not(:last-child) {
+      margin-right: 0; }
+
+.footer {
+  border: 3px solid skyblue;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 5rem; }
+  .footer__list {
+    list-style: none;
+    display: inline-block; }
+  .footer__item {
+    float: left; }
+  .footer__link {
+    margin-right: 2rem; }
+    .footer__link:not(:last-child) {
+      margin-right: 0; }
+
+.mainview {
+  border: 1px solid orange;
+  color: brown;
+  margin: 5rem 0; }
