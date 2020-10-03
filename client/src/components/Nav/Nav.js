@@ -11,10 +11,6 @@ import '../../styles/sass/main.scss';
 import SearchBar from '../SearchBar/SearchBar';
 
 
-// [ VIEWS ]
-
-
-
 // [ MAIN ]
 const Nav = ( props ) => {
     

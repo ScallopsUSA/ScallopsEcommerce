@@ -43,6 +43,7 @@ $all-slow: all 1500ms;
 $all-med: all 1000ms;
 $all-fast: all 500ms;
 
+// [ MEDIA QUERY BREAKPOINTS (_mixins) ]
 $breakpoint-sm: 37.5em; // 600px
 $breakpoint-md: 56.25em; // 900px
 $breakpoint-lg: 75em; // 1200px

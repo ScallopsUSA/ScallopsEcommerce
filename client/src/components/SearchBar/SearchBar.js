@@ -7,11 +7,6 @@ import { createStructuredSelector } from 'reselect';
 // [ STYLING ]
 import '../../styles/sass/main.scss';
 
-// [ COMPONENTS ]
-
-
-// [ VIEWS ]
-
 
 
 // [ MAIN ]
