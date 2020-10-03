@@ -1,13 +1,16 @@
 import React from 'react';
 
+// [ STYLING ]
+import './styles/sass/main.scss';
+
 // [ COMPONENTS ]
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
-import MainViewContainer from './views/MainViewContainer/MainViewContainer';
 
 // [ VIEWS ]
+import MainViewContainer from './views/MainViewContainer/MainViewContainer';
 
-import './styles/sass/main.scss';
+
 
 function App() {
   return (

@@ -13,45 +13,19 @@ Head of Server/Back-end Ops - Aya Ibayashi ( aya3335@msn.com )
 
 Head of Systems Architecture - Albert Ahn ( albert.ahn@gmail.com )
 
-
-[ Packages ]
-----------------------------------------------
-
-Client:
-
-axios
-node-sass
-react-redux
-redux
-redux-logger
-redux-persist
-redux-saga
-reselect
-
-
-Server:
-
-bcrypt 
-cookie-parser
-cors
-dotenv
-express
-jsonwebtoken
-mongoose
-
 ----------------------------------------------
 
 [ Activity Log ]
 ----------------------------------------------
 2020/10/01: 
- - Project planning meeting
+ - Project planning
 
 2020/10/02: 
- - Initial roles and tasks assigned
-   - Team Leads
+ - Initial roles determined:
+   - Team Leads nominated and elected
    - Second Leads: TBD
    - MySQL v NoSQL: TBD
- - Initial Tasks:
+ - Initial tasks:
    - Systems architecture setup
    - Layout / wireframe without styling
    - DB research and decision for SQL v NoSQL
