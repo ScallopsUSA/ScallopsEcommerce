@@ -1,4 +1,5 @@
 {
+
 	"name": "client",
 	"version": "0.1.0",
 	"private": true,
@@ -70,4 +71,5 @@
 		"@types/react": "16.9.34",
 		"typescript": "3.8.3"
 	}
+
 }
