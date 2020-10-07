@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 // [ STYLING ]
-import '../../styles/sass/main.scss';
+import '../../assets/scss/main.scss';
 
 // [ COMPONENTS ]
 
