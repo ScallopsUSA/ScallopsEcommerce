@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 
 // styles
 import 'assets/scss/main.scss';
-// import "assets/css/nucleo-icons.css";
+import "assets/css/nucleo-icons.css";
 // import "assets/scss/blk-design-system-pro-react.scss?v1.1.0";
 // import "assets/scss/blk-design-system-pro-react.scss";
 // import "assets/demo/demo.css";
