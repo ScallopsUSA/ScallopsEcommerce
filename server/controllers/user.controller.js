@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 require('dotenv').config();
 const axios = require("axios");
+var request = require("request");
 
 module.exports.index = (request, response) => {
     response.json({
@@ -97,6 +98,3 @@ module.exports.logout = (_, response) => {
     response.sendStatus(200);
 }
 
-module.exports.hm = (req, res) => {
-    
-}
