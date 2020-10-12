@@ -67,6 +67,11 @@ function App() {
 					path='/apitest'
 					render={(props) => <ApiTest {...props} />}
 				/>
+                <Route
+                    path='/'
+                    render={ (props) => <Index {...props} /> }
+                />
+                <Redirect to='/' />
 			</Switch>
 		</div>
 	);
