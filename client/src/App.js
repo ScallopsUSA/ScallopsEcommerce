@@ -14,6 +14,7 @@ import Index from "views/Index.js";
 import Presentation from "views/Presentation.js";
 import Sections from "views/Sections.js";
 // example pages
+import ApiTest from "views/examples/ApiTest.js";
 import AboutUs from "views/examples/AboutUs.js";
 import ContactUs from "views/examples/ContactUs.js";
 // import Ecommerce from "views/examples/Ecommerce.js";
@@ -64,8 +65,9 @@ function App() {
 					path='/checkout-page'
 					render={(props) => <CheckoutPage {...props} />}
 				/>
-
-				<Redirect from='/' to='/apiTest' />
+				<Route path='/apitest' render={(props) => <ApiTest {...props} />} />
+				<Route path='/' render={(props) => <Index {...props} />} />
+				<Redirect to='/' />
 			</Switch>
 		</div>
 	);

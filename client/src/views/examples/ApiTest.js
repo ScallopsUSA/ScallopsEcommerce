@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./ApiTest.scss";
+// import "./ApiTest.scss";
 
 export default function ApiTest() {
 	const [apiData, setApiData] = useState([]);
@@ -17,8 +17,6 @@ export default function ApiTest() {
 		)
 			.then((res) => res.json())
 			.then((response) => {
-				console.log("response: ", response);
-
 				setApiData(response.products);
 				console.log("result: ", response.products);
 			})
@@ -31,7 +29,9 @@ export default function ApiTest() {
 			<button onClick={getApi}>Get Api!</button>
 			<ul>
 				{apiData.map((el) => (
-					<li key={el.id}>{el.name}</li>
+					<li key={el.id}>{el.name}
+						<img src={`https://${el.imageUrl}`} style={{width:200, height:200}}/>
+					</li>
 				))}
 			</ul>
 		</div>

@@ -2,7 +2,6 @@ const { User } = require("../models/user.model");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 require("dotenv").config();
-const axios = require("axios");
 
 module.exports.index = (request, response) => {
 	response.json({
@@ -103,31 +102,4 @@ module.exports.deleteUser = (request, response) => {
 module.exports.logout = (_, response) => {
 	response.clearCookie("userToken");
 	response.sendStatus(200);
-};
-
-module.exports.hm = (req, res) => {
-	axios({
-		method: "GET",
-		url: "https://asos2.p.rapidapi.com/v2/auto-complete",
-		headers: {
-			"content-type": "application/octet-stream",
-			"x-rapidapi-host": "asos2.p.rapidapi.com",
-			"x-rapidapi-key": "0ee3bb54a2mshcf322e0dcffed20p1e5919jsn00e456447551",
-			useQueryString: true,
-		},
-		params: {
-			country: "US",
-			currency: "USD",
-			sizeSchema: "US",
-			store: "US",
-			lang: "en-US",
-			q: "shirt",
-		},
-	})
-		.then((response) => {
-			console.log(response);
-		})
-		.catch((error) => {
-			console.log(error);
-		});
 };
