@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 
 // styles
-import 'assets/scss/main.scss';
+import "assets/scss/main.scss";
 import "assets/css/nucleo-icons.css";
 // import "assets/scss/blk-design-system-pro-react.scss?v1.1.0";
 // import "assets/scss/blk-design-system-pro-react.scss";
@@ -16,12 +16,13 @@ import Sections from "views/Sections.js";
 // example pages
 import AboutUs from "views/examples/AboutUs.js";
 import ContactUs from "views/examples/ContactUs.js";
-import Ecommerce from "views/examples/Ecommerce.js";
+// import Ecommerce from "views/examples/Ecommerce.js";
 import ProductPage from "views/examples/ProductPage.js";
 import AccountSettings from "views/examples/AccountSettings.js";
 import LoginPage from "views/examples/LoginPage.js";
 import RegisterPage from "views/examples/RegisterPage.js";
 import CheckoutPage from "views/examples/CheckoutPage.js";
+import ApiTest from "components/ApiTest/ApiTest";
 
 // [ COMPONENTS ]
 // [ VIEWS ]
@@ -41,7 +42,8 @@ function App() {
 					path='/contact-us'
 					render={(props) => <ContactUs {...props} />}
 				/>
-				<Route path='/ecommerce' render={(props) => <Ecommerce {...props} />} />
+
+				<Route path='/apiTest' render={(props) => <ApiTest {...props} />} />
 				<Route
 					path='/product-page'
 					render={(props) => <ProductPage {...props} />}
@@ -62,7 +64,8 @@ function App() {
 					path='/checkout-page'
 					render={(props) => <CheckoutPage {...props} />}
 				/>
-				<Redirect from='/' to='/ecommerce' />
+
+				<Redirect from='/' to='/apiTest' />
 			</Switch>
 		</div>
 	);
