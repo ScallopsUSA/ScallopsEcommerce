@@ -65,7 +65,7 @@ class ColorNavbar extends React.Component {
 							<div className='navbar-collapse-header'>
 								<Row>
 									<Col className='collapse-brand' xs='6'>
-										<a href='#pablo' onClick={(e) => e.preventDefault()}>
+										<a href={`/google-login`}>
 											Scallops• <span>Ecommerce</span>
 										</a>
 									</Col>
@@ -103,6 +103,10 @@ class ColorNavbar extends React.Component {
 											<i className='tim-icons icon-bag-16' />
 											Product Page
 										</DropdownItem>
+                                        <DropdownItem to='/google-login' tag={Link}>
+											<i className='tim-icons icon-bulb-63' />
+											Google Login Test
+										</DropdownItem>
 										<UncontrolledDropdown>
 											<DropdownToggle
 												caret
@@ -110,10 +114,11 @@ class ColorNavbar extends React.Component {
 												className='dropdown-item'
 												tag='a'
 												href='#pablo'
-												onClick={(e) => e.preventDefault()}>
-												<i
-													aria-hidden={true}
-													className='tim-icons icon-book-bookmark'
+												onClick={(e) => e.preventDefault()}
+                                            >
+                                                <i 
+                                                    aria-hidden={true}
+												    className='tim-icons icon-book-bookmark'
 												/>
 												App Pages
 											</DropdownToggle>

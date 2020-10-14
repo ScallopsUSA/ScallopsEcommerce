@@ -25,6 +25,7 @@ import RegisterPage from "views/examples/RegisterPage.js";
 import CheckoutPage from "views/examples/CheckoutPage.js";
 
 // [ COMPONENTS ]
+import GoogleLogin from './components/GoogleLogin/GoogleLogin';
 // [ VIEWS ]
 
 function App() {
@@ -55,6 +56,10 @@ function App() {
 					path='/login-page'
 					render={(props) => <LoginPage {...props} />}
 				/>
+                <Route
+                    path='/google-login'
+                    render={(props) => <GoogleLogin {...props} />}
+                />
 				<Route
 					path='/register-page'
 					render={(props) => <RegisterPage {...props} />}
