@@ -1,4 +1,5 @@
 const UserController = require('../controllers/user.controller');
+const router = require('express').Router();
 // const { authenticate } = require('../config/jwt.config')
 module.exports = function(app){
     app.get('/api', UserController.index);

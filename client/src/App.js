@@ -1,5 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
+
+// [ REDUX ]
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectCurrentUser } from './redux/user/user.selectors';
+import { setCurrentUser } from './redux/user/user.actions';
+
+
+// [ LOGIN TOKEN ]
+import queryString from 'query-string';
 
 // styles
 import 'assets/scss/main.scss';
@@ -28,7 +38,20 @@ import CheckoutPage from "views/examples/CheckoutPage.js";
 import GoogleLogin from './components/GoogleLogin/GoogleLogin';
 // [ VIEWS ]
 
-function App() {
+const App = ( props, { setCurrentUser, currentUser } ) => {
+    
+    useEffect( () => {
+        const query = queryString.parse( props.location.search );
+        console.log( {query, props} );
+        if( query.token ) {
+            console.log( "<GoogleLogin /> ", query.token );
+            window.localStorage.setItem( "jwt", query.token );
+            setCurrentUser(query.token);
+            props.history.push("/index");
+        } else {
+            console.log( "token not created" );
+        }
+    })
 	return (
 		<div>
 			<Switch>
@@ -80,5 +103,14 @@ function App() {
 			</Switch>
 		</div>
 	);
-}
-export default App;
+};
+
+const mapStateToProps = createStructuredSelector({
+    currentUser: selectCurrentUser
+});
+
+const mapDispatchToProps = dispatch => ({
+    setCurrentUser: user => dispatch( setCurrentUser(user) )
+});
+
+export default connect( mapStateToProps, mapDispatchToProps )(App);

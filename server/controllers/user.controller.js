@@ -72,15 +72,21 @@ module.exports.loginUser = async (request, response) => {
 
 // [ GOOGLE ]
 module.exports.googleAuthentication = ( req, res ) => {
+    console.log( 'googleaAuthentication executing' );
     passport.authenticate('google', { scope: ['profile'] })
 }
 module.exports.googleCallback = ( req, res ) => {
+    console.log( 'googleCallback executing' );
     passport.authenticate('google', { failureRedirect: '/auth/google/fail' }),
-    function( req, res ) {
-        res.redirect('/index');
+    ( req, res ) => {
+        const token = req.user.token;
+        res.redirect("http://localhost:3000?token=" + token);
     }
 }
-module.exports.googleFail = ( req, res ) => res.send("Login with Google failed.");
+module.exports.googleFail = ( req, res ) => {
+    console.log( 'googleFail executing' );
+    res.send("Login with Google failed.");
+}
 
 // [ GET ]
 module.exports.getAllUsers = (request, response) => {

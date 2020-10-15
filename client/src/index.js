@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 
 // [ STYLNG ]
@@ -18,7 +18,9 @@ ReactDOM.render(
 	<Provider store={store}>
 		<BrowserRouter>
 			<PersistGate persistor={persistor}>
-				<App />
+                <Switch>
+				    <Route path='/' render={(props) => <App {...props} />} />
+                </Switch>
 			</PersistGate>
 		</BrowserRouter>
 	</Provider>,

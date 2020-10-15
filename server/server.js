@@ -1,4 +1,5 @@
 const express = require('express');
+const router = require('express').Router();
 const app = express();
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
@@ -22,14 +23,22 @@ app.use(express.urlencoded({ extended: true }));
 app.use( bodyParser.urlencoded({ extended: false }) );
 app.use( bodyParser.json() );
 app.use( express.static("client/build") );
-
 app.use( cookieSession({
-    name: 'login-session',
-    keys: ['key1', 'key2']
-}) )
-
+    name: 'login-session', 
+    keys: ['key1', 'key2']  
+}) );
 app.use( passport.initialize() );
 app.use( passport.session() );
+
+// router.get('/auth/google', (req, res) => {
+//     res.render('login');
+// });
+// router.get('/auth/google/fail', (req, res) => {
+    
+// });
+// router.get('/auth/google/callback', (req, res) => {
+    
+// });
 
 // [ SERVER UP ]
 app.listen(port, () => console.log(`Listening on port: ${port}`) );

@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import axios, {navigate } from 'axios';
 
 // [ REDUX ]
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import { selectCurrentUser } from '../../../redux/user/user.selectors';
+import { setCurrentUser } from '../../../redux/user/user.actions';
 
 // [ STYLING ]
 import '../../../assets/scss/main.scss';
@@ -15,11 +18,26 @@ import '../../../assets/scss/main.scss';
 
 
 // [ MAIN ]
-const GoogleLoginButton = ( props ) => {
+const GoogleLoginButton = ( {currentUser, setCurrentUser} ) => {
     
+    const clickGoogleLogin = e => {
+        console.log( 'google login clicked' );
+        axios.get( "http://localhost:8000/auth/google")
+            .then( res => {
+                console.log( "GoogleLoginButton.then(): ", res.json() );
+                setCurrentUser(res.data);
+                navigate('/index');
+                
+            })
+            .catch( err => {
+                console.log(".catch activated: "+err)
+                // setErrMsg('Invalid credentials')
+            })  
+    }
+
     return (
         <div className={`google-login-button`}>
-            <a href="/auth/google" className="button">
+            <button className="button" onClick={clickGoogleLogin}>
                 <div>
                     <span className={`svgIcon t-popup-svg`}>
                         <svg
@@ -28,7 +46,7 @@ const GoogleLoginButton = ( props ) => {
                             height="37"
                             viewBox="0 0 25 25"
                         >
-                            <g fill="none" fill-rule="evenodd">
+                            <g fill="none" fillRule="evenodd">
                             <path
                                 d="M20.66 12.693c0-.603-.054-1.182-.155-1.738H12.5v3.287h4.575a3.91 3.91 0 0 1-1.697 2.566v2.133h2.747c1.608-1.48 2.535-3.65 2.535-6.24z"
                                 fill="#4285F4"
@@ -50,7 +68,7 @@ const GoogleLoginButton = ( props ) => {
                     </span>
                     <span className={`button-label`}>Sign in with Google</span>
                 </div>
-            </a>
+            </button>
         </div>
     )
 };
@@ -59,13 +77,11 @@ const GoogleLoginButton = ( props ) => {
 
 // [ REDUX CONNECT ]
 const mapStateToProps = createStructuredSelector({
-    
-    
+    currentUser: selectCurrentUser
 });
 
 const mapDispatchToProps = dispatch => ({
-    
-    
+    setCurrentUser: user => dispatch( setCurrentUser(user) )
 });
 
 
