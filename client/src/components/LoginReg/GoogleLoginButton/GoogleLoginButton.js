@@ -8,8 +8,8 @@ import keys from '../../../secretKeys';
 // [ REDUX ]
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { selectCurrentUser } from '../../../redux/user/user.selectors';
-import { setCurrentUser } from '../../../redux/user/user.actions';
+import { selectCurrentUser } from 'redux/user/user.selectors';
+import { setCurrentUser } from 'redux/user/user.actions';
 
 // [ STYLING ]
 import '../../../assets/scss/main.scss';

@@ -3,28 +3,28 @@ import React, { useState, useEffect } from 'react';
 // [ REDUX ]
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { selectCurrentUser } from '../../redux/user/user.selectors';
-import { setCurrentUser } from '../../redux/user/user.actions';
+import { selectCurrentUser } from 'redux/user/user.selectors';
+import { setCurrentUser } from 'redux/user/user.actions';
 
 // [ STYLING ]
-import '../../assets/scss/main.scss';
-
-// [ OAUTH ]
-import queryString from 'query-string';
+import 'assets/scss/main.scss';
 
 // [ COMPONENTS ]
-import  GoogleLoginButton from './GoogleLoginButton/GoogleLoginButton';
+import GoogleLoginButton from 'components/LoginReg/GoogleLoginButton/GoogleLoginButton';
+import FacebookLoginButton from 'components/LoginReg/FacebookLoginButton/FacebookLoginButton';
 
 // [ VIEWS ]
 
 
 
 // [ MAIN ]
-const GoogleLogin = ( props, {currentUser, setCurrentUser} ) => {
+const LoginRegPage = ( props, {currentUser, setCurrentUser} ) => {
     
     return (
         <div className={`google-login`}>
             <GoogleLoginButton />
+                < br/>
+            <FacebookLoginButton />
         </div>
     )
 };
@@ -40,4 +40,4 @@ const mapDispatchToProps = dispatch => ({
     setCurrentUser: user => dispatch( setCurrentUser(user) )
 });
 
-export default connect( mapStateToProps, mapDispatchToProps )( GoogleLogin );
+export default connect( mapStateToProps, mapDispatchToProps )( LoginRegPage );

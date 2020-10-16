@@ -121,9 +121,9 @@ class ColorNavbar extends React.Component {
 											<i className='tim-icons icon-bag-16' />
 											Product Page
 										</DropdownItem>
-                                        <DropdownItem to='/google-login' tag={Link}>
+                                        <DropdownItem to='/login-page' tag={Link}>
 											<i className='tim-icons icon-bulb-63' />
-											Google Login Test
+											Login Test
 										</DropdownItem>
 										<UncontrolledDropdown>
 											<DropdownToggle
