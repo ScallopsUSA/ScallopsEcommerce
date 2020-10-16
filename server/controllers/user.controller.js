@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const axios = require("axios");
 const request = require("request");
-const passport = require('passport');
 
 
 
@@ -70,34 +69,6 @@ module.exports.loginUser = async (request, response) => {
         })
         .json({ msg:"success!", userToken })
 }
-
-
-
-// [ GOOGLE ]
-module.exports.googleAuthentication = ( req, res ) => {
-    console.log( 'googleaAuthentication executing' );
-
-    passport.authenticate('google', { scope: ['profile', 'email'] });
-    console.log( passport.authenticate('google', { scope: ['profile', 'email'] }) );
-
-    console.log( 'googleAuthentication exiting' );
-}
-
-module.exports.googleCallback = ( req, res ) => {
-    console.log( 'googleCallback executing' );
-    passport.authenticate("google", { successRedirect: "/", failureRedirect: "/auth/google/fail" }),
-    ( req, res ) => {
-        const token = req.user.token;
-        res.redirect("http://localhost:8000?token=" + token);
-    }
-}
-
-module.exports.googleFail = ( req, res ) => {
-    console.log( 'googleFail executing' );
-    res.send("Login with Google failed.");
-}
-
-
 
 // [ GET ]
 module.exports.getAllUsers = (request, response) => {
