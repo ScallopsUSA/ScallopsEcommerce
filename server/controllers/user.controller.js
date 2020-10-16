@@ -1,16 +1,18 @@
 const { User } = require('../models/user.model');
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
-require('dotenv').config();
 const axios = require("axios");
-var request = require("request");
+const request = require("request");
+
+
 
 module.exports.index = (request, response) => {
     response.json({
         message: "Hello World"
     });
 }
-   
+
+// [ LOGIN / REG ]
 module.exports.createUser = (request, response) => {
     const { firstName, lastName, email, password, confirmPassword } = request.body;
     User.create({
@@ -32,7 +34,7 @@ module.exports.createUser = (request, response) => {
             );
             response
                 .cookie("userToken", token, {
-                httpOnly: true
+                    httpOnly: true
                 })
                 .json({status:"Success", user:user})
         })
@@ -68,7 +70,7 @@ module.exports.loginUser = async (request, response) => {
         .json({ msg:"success!", userToken })
 }
 
-
+// [ GET ]
 module.exports.getAllUsers = (request, response) => {
     User.find({})
         .then(users => response.json(users))
@@ -81,18 +83,22 @@ module.exports.getUser = (request, response) => {
         .catch(err => response.json(err))
 }
 
+
+// [ PUT ]
 module.exports.updateUser = (request, response) => {
     User.findOneAndUpdate({_id: request.params.id}, request.body, {new:true})
         .then(updatedUser => response.json(updatedUser))
         .catch(err => response.json(err))
 }
 
+// [ DELETE ]
 module.exports.deleteUser = (request, response) => {
     User.deleteOne({ _id: request.params.id })
         .then(deleteConfirmation => response.json(deleteConfirmation))
         .catch(err => response.json(err))
 }
 
+// [ LOGOUT ]
 module.exports.logout = (_, response) => {
     response.clearCookie('userToken');
     response.sendStatus(200);
