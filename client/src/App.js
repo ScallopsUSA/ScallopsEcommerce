@@ -7,10 +7,6 @@ import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { setCurrentUser } from './redux/user/user.actions';
 
-
-// [ LOGIN TOKEN ]
-import queryString from 'query-string';
-
 // styles
 import 'assets/scss/main.scss';
 import "assets/css/nucleo-icons.css";
@@ -30,30 +26,29 @@ import ContactUs from "views/examples/ContactUs.js";
 import Ecommerce from "views/examples/Ecommerce.js";
 import ProductPage from "views/examples/ProductPage.js";
 import AccountSettings from "views/examples/AccountSettings.js";
-import LoginPage from "views/examples/LoginPage.js";
 import RegisterPage from "views/examples/RegisterPage.js";
 import CheckoutPage from "views/examples/CheckoutPage.js";
 
 // [ COMPONENTS ]
-import GoogleLogin from './components/GoogleLogin/GoogleLogin';
+import LoginPage from 'views/LoginRegPage/LoginPage';
 
 // [ VIEWS ]
 
 const App = ( props, { setCurrentUser, currentUser } ) => {
     
-    useEffect( () => {
-        const query = queryString.parse( props.location.search );
+    // useEffect( () => {
+    //     const query = queryString.parse( props.location.search );
 
-        if( query.token ) {
-            console.log( "<GoogleLogin /> ", query.token );
-            setCurrentUser(query.token);
+    //     if( query.token ) {
+    //         console.log( "<GoogleLogin /> ", query.token );
+    //         setCurrentUser(query.token);
             
-            window.localStorage.setItem( "jwt", query.token );
-            props.history.push("/");
-        } else {
-            console.log( "token not created. query: ", query );
-        }
-    }, [currentUser, setCurrentUser]);
+    //         window.localStorage.setItem( "jwt", query.token );
+    //         props.history.push("/");
+    //     } else {
+    //         console.log( "token not created. query: ", query );
+    //     }
+    // }, [currentUser, setCurrentUser]);
 
 	return (
 		<div>
@@ -70,8 +65,6 @@ const App = ( props, { setCurrentUser, currentUser } ) => {
 				<Route path='/apitest' render={(props) => <ApiTest {...props} />} />
 				
                 <Route path='/login-page' render={(props) => <LoginPage {...props} />} />
-                <Route path='/google-login' render={(props) => <GoogleLogin {...props} />} />
-                <Route path='/auth/google' render={(props) => <GoogleLogin {...props} />} />
                 
                 <Route path='/' render={ (props) => <Index {...props} /> } />
                 <Redirect to='/' />
