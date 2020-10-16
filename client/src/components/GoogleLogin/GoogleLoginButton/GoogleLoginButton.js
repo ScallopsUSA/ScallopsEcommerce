@@ -16,7 +16,6 @@ import '../../../assets/scss/main.scss';
 
 // [ COMPONENTS ]
 import GoogleLogin from 'react-google-login';
-import GoogleLoginButtonOG from './GoogleLoginButtonOG';
 
 // [ VIEWS ]
 
@@ -54,8 +53,6 @@ const GoogleLoginButton = ( {currentUser, setCurrentUser, clickLogin, ...props} 
                 onFailure={resGoogleFail}
                 cookiePolicy={`single_host_origin`}
             />
-
-            <GoogleLoginButtonOG />
         </>
     )
 };
