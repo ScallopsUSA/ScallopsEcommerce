@@ -1,6 +1,6 @@
 const passport = require("passport");
 const { User } = require("../models/user.model");
-const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
 require('dotenv').config();
 
 passport.serializeUser(function(user, done) {
@@ -16,7 +16,7 @@ passport.use(
         {
             clientID: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET_KEY,
-            callbackURL: "http://localhost:8000/auth/google/callback"
+            callbackURL: `http://localhost:8000/auth/google/callback`
         },
         function(accessToken, refreshToken, profile, done) {
             const userData = {

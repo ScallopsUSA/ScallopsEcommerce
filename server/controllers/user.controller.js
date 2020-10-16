@@ -6,6 +6,7 @@ const request = require("request");
 const passport = require('passport');
 
 
+
 module.exports.index = (request, response) => {
     response.json({
         message: "Hello World"
@@ -70,23 +71,33 @@ module.exports.loginUser = async (request, response) => {
         .json({ msg:"success!", userToken })
 }
 
+
+
 // [ GOOGLE ]
 module.exports.googleAuthentication = ( req, res ) => {
     console.log( 'googleaAuthentication executing' );
-    passport.authenticate('google', { scope: ['profile'] })
+
+    passport.authenticate('google', { scope: ['profile', 'email'] });
+    console.log( passport.authenticate('google', { scope: ['profile', 'email'] }) );
+
+    console.log( 'googleAuthentication exiting' );
 }
+
 module.exports.googleCallback = ( req, res ) => {
     console.log( 'googleCallback executing' );
-    passport.authenticate('google', { failureRedirect: '/auth/google/fail' }),
+    passport.authenticate("google", { successRedirect: "/", failureRedirect: "/auth/google/fail" }),
     ( req, res ) => {
         const token = req.user.token;
-        res.redirect("http://localhost:3000?token=" + token);
+        res.redirect("http://localhost:8000?token=" + token);
     }
 }
+
 module.exports.googleFail = ( req, res ) => {
     console.log( 'googleFail executing' );
     res.send("Login with Google failed.");
 }
+
+
 
 // [ GET ]
 module.exports.getAllUsers = (request, response) => {

@@ -1,5 +1,4 @@
 const express = require('express');
-const router = require('express').Router();
 const app = express();
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
@@ -30,6 +29,7 @@ app.use( cookieSession({
 app.use( passport.initialize() );
 app.use( passport.session() );
 
+// const router = require('express').Router();
 // router.get('/auth/google', (req, res) => {
 //     res.render('login');
 // });

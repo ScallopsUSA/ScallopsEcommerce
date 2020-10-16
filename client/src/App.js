@@ -36,69 +36,44 @@ import CheckoutPage from "views/examples/CheckoutPage.js";
 
 // [ COMPONENTS ]
 import GoogleLogin from './components/GoogleLogin/GoogleLogin';
+
 // [ VIEWS ]
 
 const App = ( props, { setCurrentUser, currentUser } ) => {
     
     useEffect( () => {
         const query = queryString.parse( props.location.search );
-        console.log( {query, props} );
+
         if( query.token ) {
             console.log( "<GoogleLogin /> ", query.token );
-            window.localStorage.setItem( "jwt", query.token );
             setCurrentUser(query.token);
-            props.history.push("/index");
+            
+            window.localStorage.setItem( "jwt", query.token );
+            props.history.push("/");
         } else {
-            console.log( "token not created" );
+            console.log( "token not created. query: ", query );
         }
-    })
+    }, [currentUser, setCurrentUser]);
+
 	return (
 		<div>
 			<Switch>
-				<Route path='/index' render={(props) => <Index {...props} />} />
-				<Route
-					path='/presentation'
-					render={(props) => <Presentation {...props} />}
-				/>
+				<Route path='/presentation' render={(props) => <Presentation {...props} />} />
 				<Route path='/sections' render={(props) => <Sections {...props} />} />
 				<Route path='/about-us' render={(props) => <AboutUs {...props} />} />
-				<Route
-					path='/contact-us'
-					render={(props) => <ContactUs {...props} />}
-				/>
+				<Route path='/contact-us' render={(props) => <ContactUs {...props} />} />
 				<Route path='/ecommerce' render={(props) => <Ecommerce {...props} />} />
-				<Route
-					path='/product-page'
-					render={(props) => <ProductPage {...props} />}
-				/>
-				<Route
-					path='/account-settings'
-					render={(props) => <AccountSettings {...props} />}
-				/>
-				<Route
-					path='/login-page'
-					render={(props) => <LoginPage {...props} />}
-				/>
-                <Route
-                    path='/google-login'
-                    render={(props) => <GoogleLogin {...props} />}
-                />
-				<Route
-					path='/register-page'
-					render={(props) => <RegisterPage {...props} />}
-				/>
-				<Route
-					path='/checkout-page'
-					render={(props) => <CheckoutPage {...props} />}
-				/>
-				<Route
-					path='/apitest'
-					render={(props) => <ApiTest {...props} />}
-				/>
-                <Route
-                    path='/'
-                    render={ (props) => <Index {...props} /> }
-                />
+				<Route path='/product-page' render={(props) => <ProductPage {...props} />} />
+				<Route path='/account-settings' render={(props) => <AccountSettings {...props} />} />
+				<Route path='/register-page' render={(props) => <RegisterPage {...props} />} />
+				<Route path='/checkout-page' render={(props) => <CheckoutPage {...props} />} />
+				<Route path='/apitest' render={(props) => <ApiTest {...props} />} />
+				
+                <Route path='/login-page' render={(props) => <LoginPage {...props} />} />
+                <Route path='/google-login' render={(props) => <GoogleLogin {...props} />} />
+                <Route path='/auth/google' render={(props) => <GoogleLogin {...props} />} />
+                
+                <Route path='/' render={ (props) => <Index {...props} /> } />
                 <Redirect to='/' />
 			</Switch>
 		</div>

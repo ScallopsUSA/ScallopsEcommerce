@@ -21,8 +21,6 @@ import  GoogleLoginButton from './GoogleLoginButton/GoogleLoginButton';
 
 // [ MAIN ]
 const GoogleLogin = ( props, {currentUser, setCurrentUser} ) => {
-
-    
     
     return (
         <div className={`google-login`}>
