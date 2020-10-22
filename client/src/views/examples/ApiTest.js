@@ -11,7 +11,7 @@ export default function ApiTest() {
 				headers: {
 					"x-rapidapi-host": "asos2.p.rapidapi.com",
 					"x-rapidapi-key":
-						"ENTER KEY HERE",
+					"0ee3bb54a2mshcf322e0dcffed20p1e5919jsn00e456447551",
 				},
 			}
 		)
