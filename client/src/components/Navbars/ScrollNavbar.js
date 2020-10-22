@@ -1,5 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
+// [ REDUX ]
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { setCurrentUser } from '../../redux/user/user.actions';
+
 // JavaScript plugin that hides or shows a component based on your scroll
 import Headroom from "headroom.js";
 // reactstrap components
@@ -29,7 +36,12 @@ class ScrollNavbar extends React.Component {
 		if (document.getElementById(id) !== null) {
 			document.getElementById(id).scrollIntoView();
 		}
-	};
+    };
+    
+    logProps = e => {
+        console.log( this.props );
+    }
+    
 	render() {
 		return (
 			<>
@@ -37,10 +49,10 @@ class ScrollNavbar extends React.Component {
 					<Container>
 						<div className='navbar-translate'>
 							<NavbarBrand to='/index' tag={Link} id='tooltip1995010466'>
-								<span>BLK•</span> Design System PRO React
+								
 							</NavbarBrand>
 							<UncontrolledTooltip delay={0} target='tooltip1995010466'>
-								Designed and Coded by Creative Tim
+								
 							</UncontrolledTooltip>
 							<button className='navbar-toggler' id='navigation'>
 								<span className='navbar-toggler-bar bar1' />
@@ -52,10 +64,17 @@ class ScrollNavbar extends React.Component {
 							<div className='navbar-collapse-header'>
 								<Row>
 									<Col className='collapse-brand' xs='6'>
-										<a href='#pablo' onClick={(e) => e.preventDefault()}>
+                                        <a href={`/google-login`}>
 											Scallops• <span>Ecommerce React</span>
 										</a>
 									</Col>
+                                    <Col className='collapse-brand' xs='6'>
+                                        <a href='/'>
+                                            { this.props.currentUser && this.props.currentUser.firstName 
+                                                ? this.props.currentUser.firstName 
+                                                : null }
+                                        </a>
+                                    </Col>
 									<Col className='collapse-close text-right' xs='6'>
 										<button className='navbar-toggler' id='navigation'>
 											<i className='tim-icons icon-simple-remove' />
@@ -204,4 +223,12 @@ class ScrollNavbar extends React.Component {
 	}
 }
 
-export default ScrollNavbar;
+const mapStateToProps = createStructuredSelector({
+    currentUser: selectCurrentUser
+});
+
+const mapDispatchToProps = dispatch => ({
+    setCurrentUser: user => dispatch( setCurrentUser(user) )
+});
+
+export default  connect( mapStateToProps, mapDispatchToProps )( ScrollNavbar );
