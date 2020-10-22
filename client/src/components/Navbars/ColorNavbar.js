@@ -1,4 +1,11 @@
 import React from "react";
+
+// [ REDUX ]
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { setCurrentUser } from '../../redux/user/user.actions';
+
 import { Link } from "react-router-dom";
 // reactstrap components
 import {
@@ -42,7 +49,13 @@ class ColorNavbar extends React.Component {
 				navbarColor: "navbar-transparent",
 			});
 		}
-	};
+    };
+    
+    logProps = e => {
+        e.preventDefault();
+        console.log( this.props );
+    }
+
 	render() {
 		return (
 			<>
@@ -50,7 +63,11 @@ class ColorNavbar extends React.Component {
 					<Container>
 						<div className='navbar-translate'>
 							<NavbarBrand to='/index' tag={Link} id='tooltip6619950104'>
-								<span>Scallops•</span> E-commerce React
+								<span>Scallops•</span> E-commerce React 
+                                    < br/>
+                                { this.props.currentUser.firstName 
+                                    ? `Welcome, ${this.props.currentUser.firstName}!` 
+                                    : "" }
 							</NavbarBrand>
 							<UncontrolledTooltip delay={0} target='tooltip6619950104'>
 								Designed and Coded by Scallops•
@@ -65,10 +82,11 @@ class ColorNavbar extends React.Component {
 							<div className='navbar-collapse-header'>
 								<Row>
 									<Col className='collapse-brand' xs='6'>
-										<a href='#pablo' onClick={(e) => e.preventDefault()}>
+										<a href={`/google-login`} onClick={this.logProps}>
 											Scallops• <span>Ecommerce</span>
 										</a>
 									</Col>
+                                    
 									<Col className='collapse-close text-right' xs='6'>
 										<button className='navbar-toggler' id='navigation'>
 											<i className='tim-icons icon-simple-remove' />
@@ -103,6 +121,10 @@ class ColorNavbar extends React.Component {
 											<i className='tim-icons icon-bag-16' />
 											Product Page
 										</DropdownItem>
+                                        <DropdownItem to='/login-page' tag={Link}>
+											<i className='tim-icons icon-bulb-63' />
+											Login Test
+										</DropdownItem>
 										<UncontrolledDropdown>
 											<DropdownToggle
 												caret
@@ -110,10 +132,11 @@ class ColorNavbar extends React.Component {
 												className='dropdown-item'
 												tag='a'
 												href='#pablo'
-												onClick={(e) => e.preventDefault()}>
-												<i
-													aria-hidden={true}
-													className='tim-icons icon-book-bookmark'
+												onClick={(e) => e.preventDefault()}
+                                            >
+                                                <i 
+                                                    aria-hidden={true}
+												    className='tim-icons icon-book-bookmark'
 												/>
 												App Pages
 											</DropdownToggle>
@@ -148,4 +171,13 @@ class ColorNavbar extends React.Component {
 	}
 }
 
-export default ColorNavbar;
+const mapStateToProps = createStructuredSelector({
+    currentUser: selectCurrentUser
+});
+
+const mapDispatchToProps = dispatch => ({
+    setCurrentUser: user => dispatch( setCurrentUser(user) )
+});
+
+
+export default connect( mapStateToProps, mapDispatchToProps )(ColorNavbar);

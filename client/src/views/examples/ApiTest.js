@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import keys from '../../secretKeys';
+
 // import "./ApiTest.scss";
 
 export default function ApiTest() {
@@ -10,8 +12,7 @@ export default function ApiTest() {
 				method: "GET",
 				headers: {
 					"x-rapidapi-host": "asos2.p.rapidapi.com",
-					"x-rapidapi-key":
-						"0ee3bb54a2mshcf322e0dcffed20p1e5919jsn00e456447551",
+					"x-rapidapi-key": keys.RapidApiKey
 				},
 			}
 		)

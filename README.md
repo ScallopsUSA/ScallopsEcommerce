@@ -31,3 +31,12 @@ Head of Systems Architecture - Albert Ahn ( albert.ahn@gmail.com )
    - DB research and decision for SQL v NoSQL
    - DB models and relationship setup
    - Server CRUD operations
+
+2020/10/06:
+ - Styling direction determined
+
+2020/10/10:
+ - Product API functional
+
+2020/10/16:
+ - Google login functional
