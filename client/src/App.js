@@ -8,7 +8,7 @@ import { selectCurrentUser } from './redux/user/user.selectors';
 import { setCurrentUser } from './redux/user/user.actions';
 
 // styles
-import 'assets/scss/main.scss';
+import "assets/scss/main.scss";
 import "assets/css/nucleo-icons.css";
 // import "assets/scss/blk-design-system-pro-react.scss?v1.1.0";
 // import "assets/scss/blk-design-system-pro-react.scss";
@@ -20,14 +20,15 @@ import Index from "views/Index.js";
 import Presentation from "views/Presentation.js";
 import Sections from "views/Sections.js";
 // example pages
-import ApiTest from "views/examples/ApiTest.js"
+import ApiTest from "views/examples/ApiTest.js";
 import AboutUs from "views/examples/AboutUs.js";
 import ContactUs from "views/examples/ContactUs.js";
-import Ecommerce from "views/examples/Ecommerce.js";
+// import Ecommerce from "views/examples/Ecommerce.js";
 import ProductPage from "views/examples/ProductPage.js";
 import AccountSettings from "views/examples/AccountSettings.js";
 import RegisterPage from "views/examples/RegisterPage.js";
 import CheckoutPage from "views/examples/CheckoutPage.js";
+import ApiTest from "components/ApiTest/ApiTest";
 
 // [ COMPONENTS ]
 import LoginPage from 'views/LoginRegPage/LoginPage';
@@ -56,6 +57,37 @@ const App = ( props, { setCurrentUser, currentUser } ) => {
 				<Route path='/presentation' render={(props) => <Presentation {...props} />} />
 				<Route path='/sections' render={(props) => <Sections {...props} />} />
 				<Route path='/about-us' render={(props) => <AboutUs {...props} />} />
+<<<<<<< HEAD
+				<Route
+					path='/contact-us'
+					render={(props) => <ContactUs {...props} />}
+				/>
+
+				<Route path='/apiTest' render={(props) => <ApiTest {...props} />} />
+				<Route
+					path='/product-page'
+					render={(props) => <ProductPage {...props} />}
+				/>
+				<Route
+					path='/account-settings'
+					render={(props) => <AccountSettings {...props} />}
+				/>
+				<Route
+					path='/login-page'
+					render={(props) => <LoginPage {...props} />}
+				/>
+				<Route
+					path='/register-page'
+					render={(props) => <RegisterPage {...props} />}
+				/>
+				<Route
+					path='/checkout-page'
+					render={(props) => <CheckoutPage {...props} />}
+				/>
+				<Route path='/apitest' render={(props) => <ApiTest {...props} />} />
+				<Route path='/' render={(props) => <Index {...props} />} />
+				<Redirect to='/' />
+=======
 				<Route path='/contact-us' render={(props) => <ContactUs {...props} />} />
 				<Route path='/ecommerce' render={(props) => <Ecommerce {...props} />} />
 				<Route path='/product-page' render={(props) => <ProductPage {...props} />} />
@@ -68,6 +100,7 @@ const App = ( props, { setCurrentUser, currentUser } ) => {
                 
                 <Route path='/' render={ (props) => <Index {...props} /> } />
                 <Redirect to='/' />
+>>>>>>> c14430af5a20d389432fd07c8d91f1e1d0cea061
 			</Switch>
 		</div>
 	);
