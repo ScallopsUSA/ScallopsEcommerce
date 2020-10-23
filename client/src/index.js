@@ -18,13 +18,13 @@ ReactDOM.render(
 	<Provider store={store}>
 		<BrowserRouter>
 			<PersistGate persistor={persistor}>
-                <Switch>
-				    <Route path='/' render={(props) => <App {...props} />} />
-                </Switch>
+				<Switch>
+					<Route path='/' render={(props) => <App {...props} />} />
+				</Switch>
 			</PersistGate>
 		</BrowserRouter>
 	</Provider>,
 	document.getElementById("root")
 );
 
-serviceWorker.unregister();
+serviceWorker.register();
