@@ -38,10 +38,10 @@
 	},
 	"proxy": "http://localhost:8000",
 	"scripts": {
-		"startReact": "react-scripts start",
+		"startReact": "HTTPS=true react-scripts start",
 		"watch:sass": "node-sass src/assets/scss/main.scss src/assets/css/main.style.css -w",
 		"dev-server": "live-server",
-		"start": "npm-run-all --parallel startReact watch:sass",
+		"start": " npm-run-all --parallel startReact watch:sass",
 		"compile:sass": "node-sass src/assets/scss/main.scss src/assets/css/main.compiled.css",
 		"concat:css": "concat -o src/assets/css/main.style.concat.css src/assets/css/main.style.compiled.css",
 		"prefix:css": "postcss --use autoprefixer -b \"last 10 versions\" src/assets/css/main.style.concat.css -o src/assets/css/main.style.prefix.css",
