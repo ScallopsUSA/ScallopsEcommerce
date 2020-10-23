@@ -38,7 +38,7 @@
 	},
 	"proxy": "http://localhost:8000",
 	"scripts": {
-		"startReact": "HTTPS=true react-scripts start",
+		"startReact": "react-scripts start",
 		"watch:sass": "node-sass src/assets/scss/main.scss src/assets/css/main.style.css -w",
 		"dev-server": "live-server",
 		"start": "npm-run-all --parallel startReact watch:sass",
