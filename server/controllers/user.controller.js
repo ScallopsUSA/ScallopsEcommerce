@@ -1,30 +1,8 @@
-<<<<<<< HEAD
-const { User } = require("../models/user.model");
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
-require("dotenv").config();
-
-module.exports.index = (request, response) => {
-	response.json({
-		message: "Hello World",
-	});
-};
-
-module.exports.createUser = (request, response) => {
-	const {
-		firstName,
-		lastName,
-		email,
-		password,
-		confirmPassword,
-	} = request.body;
-	console.log("request.body: ", request.body);
-=======
 const { User } = require('../models/user.model');
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
-const axios = require("axios");
-const request = require("request");
+// const axios = require("axios");
+// const request = require("request");
 
 
 
@@ -40,7 +18,6 @@ module.exports.createUser = (request, response) => {
     User.create({
         firstName,
         lastName,
-        // username,
         email,
         password,
         confirmPassword
@@ -50,7 +27,7 @@ module.exports.createUser = (request, response) => {
             const token = jwt.sign(
                 {
                     id: user._id,
-                    username: user.username
+                    firstName: user.firstName
                 },
                 process.env.SECRET_KEY
             );
@@ -61,34 +38,7 @@ module.exports.createUser = (request, response) => {
                 .json({status:"Success", user:user})
         })
         .catch(err => response.status(400).json(err));
-    
 }
->>>>>>> c14430af5a20d389432fd07c8d91f1e1d0cea061
-
-	User.create({
-		firstName,
-		lastName,
-		// username,
-		email,
-		password,
-		confirmPassword,
-	})
-		.then((user) => {
-			const token = jwt.sign(
-				{
-					id: user._id,
-					username: user.username,
-				},
-				process.env.SECRET_KEY
-			);
-			response
-				.cookie("userToken", token, {
-					httpOnly: true,
-				})
-				.json({ status: "Success", user: user });
-		})
-		.catch((err) => response.status(400).json(err));
-};
 
 module.exports.loginUser = async (request, response) => {
 	const user = await User.findOne({ email: request.body.email });
@@ -109,12 +59,11 @@ module.exports.loginUser = async (request, response) => {
 	const userToken = jwt.sign(
 		{
 			id: user._id,
-			username: user.username,
+			firstName: user.firstName,
 		},
 		process.env.SECRET_KEY
 	);
 
-<<<<<<< HEAD
 	response
 		.cookie("userToken", userToken, {
 			httpOnly: true,
@@ -122,9 +71,6 @@ module.exports.loginUser = async (request, response) => {
 		.json({ msg: "success!", userToken });
 };
 
-=======
-// [ GET ]
->>>>>>> c14430af5a20d389432fd07c8d91f1e1d0cea061
 module.exports.getAllUsers = (request, response) => {
 	User.find({})
 		.then((users) => response.json(users))
@@ -157,3 +103,26 @@ module.exports.logout = (_, response) => {
 	response.clearCookie("userToken");
 	response.sendStatus(200);
 };
+
+
+// [ ADD PRODUCT TO SHOPPING CART ]
+module.exports.addProductToCart = (request,response) => {
+	User.findOneAndUpdate(
+		{_id: request.params.id }, 
+		{$push:{shoppingCart:request.body.productId}}, 
+		{ new: true }
+		)
+		.then((updatedUser) => response.json(updatedUser))
+		.catch((err) => response.json(err));
+}
+
+//[ REMOVE PRODUCT FROM SHOPPING CART ]
+module.exports.removeProductFromCart = (request,response) => {
+	User.findOneAndUpdate(
+		{_id: request.params.id }, 
+		{$pull:{shoppingCart:request.body.productId}}, 
+		{ new: true }
+		)
+		.then((updatedUser) => response.json(updatedUser))
+		.catch((err) => response.json(err));
+}

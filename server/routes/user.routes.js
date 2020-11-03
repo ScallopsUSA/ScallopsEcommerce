@@ -15,4 +15,7 @@ module.exports = function(app){
 
     app.delete('/api/users/:id', UserController.deleteUser);
     app.delete('/api/users/logout', UserController.logout);
+
+    app.put('/api/users/:id/cart', UserController.addProductToCart);
+    app.put('/api/users/:id/cart/remove', UserController.removeProductFromCart);
 }

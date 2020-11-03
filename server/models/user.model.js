@@ -10,10 +10,6 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required:[true,"Last name is required"] 
     },
-    // username: {
-    //     type: String,
-    //     required:[true, "Username is required"]
-    // },
     email: {
         type: String,
         required:[true,"Email is required"],
@@ -27,6 +23,9 @@ const UserSchema = new mongoose.Schema({
         required:[true,"Password is required"],
         minlength: [8, "Password must be 8 characters or longer"]
     },
+    shoppingCart: {
+        type:Array
+    }
 }, { timestamps: true });
 
 UserSchema.virtual('confirmPassword')

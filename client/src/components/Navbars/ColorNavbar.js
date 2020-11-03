@@ -63,11 +63,12 @@ class ColorNavbar extends React.Component {
 					<Container>
 						<div className='navbar-translate'>
 							<NavbarBrand to='/index' tag={Link} id='tooltip6619950104'>
-								<span>Scallops•</span> E-commerce React
-								<br />
-								{this.props.currentUser.firstName
-									? `Welcome, ${this.props.currentUser.firstName}!`
-									: ""}
+
+								<span>Scallops•</span> E-commerce React 
+                                    < br/>
+                                { this.props.currentUser && this.props.currentUser.firstName 
+                                    ? `Welcome, ${this.props.currentUser.firstName}!` 
+                                    : "" }
 							</NavbarBrand>
 							<UncontrolledTooltip delay={0} target='tooltip6619950104'>
 								Designed and Coded by Scallops•
