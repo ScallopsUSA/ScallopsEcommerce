@@ -1,7 +1,8 @@
 
-import React from "react";
+import React, {useState} from "react";
 // react plugin used to create DropdownMenu for selecting items
 import Select from "react-select";
+import axios from 'axios';
 
 // reactstrap components
 import {
@@ -118,7 +119,8 @@ class ProductPage extends React.Component {
     this.setState({
       quantity: this.state.quantity === 100 ? 100 : this.state.quantity + 1
     });
-  };
+  };z
+  
   render() {
     return (
       <>

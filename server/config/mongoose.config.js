@@ -3,7 +3,7 @@ require('dotenv').config()
 mongoose.connect(process.env.MONGODB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: true,
+    useFindAndModify: false,
     useCreateIndex:true,
 })
     .then(() => console.log("Established a connection to the database"))

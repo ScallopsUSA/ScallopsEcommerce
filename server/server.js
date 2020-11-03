@@ -4,7 +4,6 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 
 require('dotenv').config();
-require('./routes/user.routes')(app);
 require('./config/mongoose.config'); 
 
 // [ SERVER SETUP ]
@@ -15,4 +14,5 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // [ SERVER UP ]
+require('./routes/user.routes')(app);
 app.listen(port, () => console.log(`Listening on port: ${port}`) );
