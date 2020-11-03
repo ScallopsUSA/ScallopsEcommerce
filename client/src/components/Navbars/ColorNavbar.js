@@ -65,7 +65,7 @@ class ColorNavbar extends React.Component {
 							<NavbarBrand to='/index' tag={Link} id='tooltip6619950104'>
 								<span>Scallops•</span> E-commerce React 
                                     < br/>
-                                { this.props.currentUser.firstName 
+                                { this.props.currentUser && this.props.currentUser.firstName 
                                     ? `Welcome, ${this.props.currentUser.firstName}!` 
                                     : "" }
 							</NavbarBrand>
